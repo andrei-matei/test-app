@@ -1,5 +1,5 @@
 {
-  "name": "node-test",
+  "name": "doxi-uuid",
   "version": "1.0.0",
   "description": "node express test",
   "main": "index.js",

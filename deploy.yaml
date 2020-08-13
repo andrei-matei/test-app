@@ -1,30 +1,30 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: node-test
+  name: doxi
   labels:
-    app.kubernetes.io/name: node-test
-    app.kubernetes.io/instance: node-test
+    app.kubernetes.io/name: doxi
+    app.kubernetes.io/instance: doxi-uuid
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-    namespace: node-test
+    namespace: doxi
     labels:
-        app: node-test
-    name: node-test
+        app: doxi-uuid
+    name: doxi-uuid-deployment
 spec:
   selector:
     matchLabels:
-      app: node-test
-  replicas: 1
+      app: doxi-uuid
+  replicas: 3
   template:
     metadata:
       labels:
-        app: node-test
+        app: doxi-uuid
     spec:
       containers:
-        - name: node-test
+        - name: doxi-uuid
           image: "andreimatei/node-test:1.0"
           imagePullPolicy: "IfNotPresent"
           ports:
@@ -37,10 +37,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: node-test
+  namespace: doxi
   labels:
-    app: node-test
-  name: node-test
+    app: doxi-uuid
+  name: doxi-uuid-svc
 spec:
   ports:
     - name: http
@@ -48,14 +48,14 @@ spec:
       protocol: TCP
       targetPort: http
   selector:
-    app: node-test
+    app: doxi-uuid
   type: "ClusterIP"
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: node-test
-  namespace: node-test
+  name: doxi-uuid-ingress
+  namespace: doxi
   annotations:
     kubernetes.io/ingress.class: "nginx"
 spec:
@@ -65,5 +65,5 @@ spec:
       paths:
       - path: /
         backend:
-          serviceName: node-test
+          serviceName: doxi-uuid-svc
           servicePort: 80
