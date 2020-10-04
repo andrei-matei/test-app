@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
         - name: doxi-uuid
-          image: "andreimatei/doxi-uuid:1.1"
+          image: "andreimatei/doxi-uuid:1.2"
           imagePullPolicy: "IfNotPresent"
           ports:
             - name: http

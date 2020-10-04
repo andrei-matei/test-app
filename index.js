@@ -1,4 +1,5 @@
 const promBundle = require("express-prom-bundle");
+const os = require("os");
 
 const express = require('express');
 
@@ -16,6 +17,7 @@ let corsOptions = {
 const metricsMiddleware = promBundle({includeMethod: true});
 
 const PORT = 3000;
+var hostname = os.hostname();
 
 var appcore = express();
 appcore.use(metricsMiddleware);
@@ -26,7 +28,8 @@ appcore.get('/', (req, res) => {
     res.send(JSON.stringify(
         {
             id: uuidv4(),
-            name: 'Welcome to Core-app-1'
+            name: 'Welcome to Core-app-1',
+            hostname: hostname
         }));
 });
 
