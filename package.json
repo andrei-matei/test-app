@@ -1,26 +1,19 @@
 {
-  "name": "doxi-uuid",
+  "name": "deli",
   "version": "1.0.0",
-  "description": "node express test",
+  "description": "Deli app",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/andrei-matei/node-test.git"
+    "url": "git@git.vienna.devopslog.eu:fineas/deli.git"
   },
   "author": "Andrei MATEI",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/andrei-matei/node-test/issues"
-  },
-  "homepage": "https://github.com/andrei-matei/node-test#readme",
   "dependencies": {
-    "cors": "^2.8.5",
     "express": "^4.17.1",
-    "express-prom-bundle": "^6.1.0",
-    "prom-client": "^12.0.0",
-    "uuid": "^8.3.0"
+    "uuidv4": "^6.2.5"
   }
 }
