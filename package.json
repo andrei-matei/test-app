@@ -1,19 +1,23 @@
 {
-  "name": "deli",
+  "name": "test-app",
   "version": "1.0.0",
-  "description": "Deli app",
+  "description": "Small NodeJS/Express app that returns an UUID, static name and hostname as a JSON. Written to test Kubernetes pods/services/ingress as a Node microservice with an exposed API.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git@git.vienna.devopslog.eu:fineas/deli.git"
+    "url": "git+https://github.com/andrei-matei/test-app.git"
   },
   "author": "Andrei MATEI",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andrei-matei/test-app/issues"
+  },
+  "homepage": "https://github.com/andrei-matei/test-app#readme",
   "dependencies": {
-    "express": "^4.17.1",
-    "uuidv4": "^6.2.5"
+    "express": "^4.17.2",
+    "uuidv4": "^6.2.12"
   }
 }
