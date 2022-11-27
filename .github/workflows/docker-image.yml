@@ -18,4 +18,4 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: ${{ secrets.DOCKER_USER }}/test-app:test-actions
+        tags: ${{ secrets.DOCKER_USER }}/test-app:latest
