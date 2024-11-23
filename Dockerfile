@@ -1,4 +1,4 @@
-FROM node:18.12.1-bullseye-slim
+FROM node:slim
 
 WORKDIR /usr/src/
 
