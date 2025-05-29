@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/andrei-matei/test-app#readme",
   "dependencies": {
-    "express": "^4.21.1",
+    "express": "^4.21.2",
     "uuidv4": "^6.2.13"
   }
 }
