@@ -1,4 +1,4 @@
-FROM node:slim
+FROM node:25.5.0-alpine3.23
 
 WORKDIR /usr/src/
 
