@@ -1,10 +1,13 @@
 FROM node:current-alpine3.23
 
-WORKDIR /usr/src/
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+
+RUN npm install --omit=dev
 
 COPY . .
 
-RUN npm install
-
+EXPOSE 3000
 
 CMD [ "node", "./index.js" ]
