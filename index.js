@@ -45,6 +45,12 @@ appcore.put('/uuid', (req, res) => {
     return res.send(`Received a PUT HTTP method ${id}`);
 });
 
+appcore.patch('/uuid', (req, res) => {
+    id = generateUuid()
+    console.log(id, req.method, req.hostname, req.ip);
+    return res.send(`Received a PATCH HTTP method ${id}`);
+});
+
 appcore.delete('/uuid', (req, res) => {
     id = generateUuid()
     console.log(id, req.method, req.hostname, req.ip);
