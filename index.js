@@ -1,30 +1,30 @@
 const os = require("os");
 const express = require('express');
-var appcore = express();
+const appcore = express();
 appcore.set('trust proxy', true);
 const {
     v4: uuidv4
 } = require('uuid');
 
 const PORT = process.env.PORT || 3000;
-var hostname = os.hostname();
+const hostname = os.hostname();
 
+appcore.use(express.json());
 appcore.use(express.urlencoded({
     extended: true
-}))
+}));
 
 function generateUuid() {
     return uuidv4();
 }
 
 appcore.get('/', (req, res) => {
-    res.setHeader('Content-Type', 'application/json');
     const id = generateUuid();
-    res.send(JSON.stringify({
+    res.json({
         id: id,
         name: 'Test app',
         hostname: hostname
-    }));
+    });
     console.log(id, req.method, req.hostname, req.ip);
 });
 
@@ -59,10 +59,9 @@ appcore.delete('/uuid', (req, res) => {
 });
 
 appcore.get('/health', (req, res) => {
-    res.setHeader('Content-Type', 'application/json');
-    res.send(JSON.stringify({
+    res.json({
         status: 'OK',
-    }));
+    });
 });
 
 const server = appcore.listen(PORT, () => {
